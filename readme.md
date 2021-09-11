@@ -7,17 +7,17 @@ Script that tests for Apple services connectivity including APNS, based on info 
 * Apple Push Notification Service
 * Device Setup
 * Device Management
-* Apple School Manager
-* Software updates
-* App Store
+* Apple School Manager and Apple Business Manager
+* Software updates (macOS, iOS, and tvOS)
+* Software updates (App Store)
+* Carrier updates
 * Content caching
-* App notarization
-* App validation
+* Apple Developer (App notarization)
+* Apple Developer (App validation)
 * Feedback Assistant
 * Apple diagnostics
 * Domain Name System resolution
 * Certificate validation
-
-## Additional Tests Included but not Specified by Apple
-
-* Apple Loops from audiocontentdownload.apple.com
+* Apple ID
+* iCloud
+* Additional Content
