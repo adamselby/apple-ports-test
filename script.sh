@@ -274,7 +274,7 @@ echo "Done testing for iCloud!"
 ### Additional Content
 
 echo "Testing for Additional Content…"
-echo "GarageBand downloadable content…"
+echo "GarageBand/Logic downloadable content…"
 nc -vz audiocontentdownload.apple.com 80
 nc -vz audiocontentdownload.apple.com 443
 echo "Xcode downloadable components…"
@@ -291,9 +291,5 @@ echo "Apple TV screen savers…"
 nc -vz sylvan.apple.com 80
 nc -vz sylvan.apple.com 443
 echo "Done testing for Additional Content!"
-
-
-echo "Apple Loops…"
-nc -vz audiocontentdownload.apple.com 80
 
 echo "All tests completed!"
