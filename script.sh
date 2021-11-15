@@ -78,6 +78,19 @@ nc -vz ws-ee-maidsvc.icloud.com 80
 nc -vz ws-ee-maidsvc.icloud.com 443
 echo "Done testing for Apple Manager!"
 
+## Apple Business Essentials device management
+
+echo "Testing for Apple Business Essentials…"
+echo "DEP enrollment server…"
+nc -vz axm-adm-enroll.apple.com 443
+echo "MDM server…"
+nc -vz axm-adm-mdm.apple.com 443
+echo "SCEP server…"
+nc -vz axm-adm-scep.apple.com 443
+echo "View and Manage Apps and Devices…"
+nc -vz axm-app.apple.com 443
+echo "Done testing for Apple Business Essentials!"
+
 ## Software Updates
 ### macOS, iOS, and tvOS
 
