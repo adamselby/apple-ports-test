@@ -8,6 +8,7 @@ Script that tests for Apple services connectivity including APNS, based on info 
 * Device Setup
 * Device Management
 * Apple School Manager and Apple Business Manager
+* Apple Business Essentials device management
 * Software updates (macOS, iOS, and tvOS)
 * Software updates (App Store)
 * Carrier updates
