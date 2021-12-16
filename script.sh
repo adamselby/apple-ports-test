@@ -76,6 +76,8 @@ nc -vz school.apple.com 443
 echo "Schoolwork Roster service…"
 nc -vz ws-ee-maidsvc.icloud.com 80
 nc -vz ws-ee-maidsvc.icloud.com 443
+echo "SFTP uploads…"
+nc -vz upload.appleschoolcontent.com 22
 echo "Done testing for Apple Manager!"
 
 ## Apple Business Essentials device management
@@ -117,7 +119,6 @@ nc -vz swcdn.apple.com 80
 nc -vz swdist.apple.com 443
 nc -vz swdownload.apple.com 80
 nc -vz swdownload.apple.com 443
-nc -vz swpost.apple.com 80
 nc -vz swscan.apple.com 443
 echo "Now Serving Service…"
 nc -vz ns.itunes.apple.com 443
@@ -280,8 +281,12 @@ nc -vz cvws.icloud-content.com 443
 # echo "iCloud services in China…"
 # nc -vz apzones.com 443
 # nc -vz icloud.com.cn 443
-echo "iWork documents"
+echo "iWork documents…"
 nc -vz exportws.iwork.apple.com 443
+echo "iCloud Private Relay…"
+nc -vz mask.icloud.com 443
+nc -vz mask-h2.icloud.com 443
+nc -vz mask-api.icloud.com 443
 echo "Done testing for iCloud!"
 
 ### Additional Content
