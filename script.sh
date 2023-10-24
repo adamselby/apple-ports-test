@@ -7,7 +7,7 @@ echo "Starting Apple Ports test!"
 
 # Apple Push Notifications
 
-echo "Testing for Apple Push Notification Service…"
+echo "Testing for basic Apple Push Notification Service connectivity…"
 nc -vz 5-courier.push.apple.com 443
 nc -vz 5-courier.push.apple.com 5223
 
@@ -16,7 +16,7 @@ nc -vz 5-courier.push.apple.com 5223
 echo "Testing for Device Setup…"
 echo "Device activation…"
 nc -vz albert.apple.com 443
-echo "Internet connectivity validation for networks…"
+echo "Internet connectivity validation…"
 nc -vz captive.apple.com 80
 nc -vz captive.apple.com 443
 echo "Internet Recovery…"
@@ -28,7 +28,7 @@ nc -vz static.ips.apple.com 80
 nc -vz static.ips.apple.com 443
 echo "eSIM activation…"
 nc -vz sq-device.apple.com 443
-echo "BridgeOS Updates…"
+echo "bridgeOS Updates…"
 nc -vz tbsc.apple.com 443
 echo "System date and time…"
 nc -uvz time-ios.apple.com 80
@@ -50,7 +50,7 @@ echo "DEP provisional enrollment…"
 nc -vz deviceenrollment.apple.com 443
 echo "Device Services…"
 nc -vz deviceservices-external.apple.com 443
-echo "Managed Software Updates…"
+echo "Managed Software Updates Lookup Service…"
 nc -vz gdmf.apple.com 443
 echo "APNs certificate request portal…"
 nc -vz identity.apple.com 443
@@ -73,39 +73,68 @@ nc -vz business.apple.com 443
 echo "Apple School Manager…"
 nc -vz school.apple.com 80
 nc -vz school.apple.com 443
-echo "Schoolwork Roster service…"
-nc -vz ws-ee-maidsvc.icloud.com 80
-nc -vz ws-ee-maidsvc.icloud.com 443
+echo "Login authentication…"
+nc -vz appleid.cdn-apple.com 443
+nc -vz idmsa.apple.com 443
+echo "Apps and Books…"
+nc -vz api.ent.apple.com 443
+nc -vz api.edu.apple.com 443
+echo "Device icons…"
+nc -vz statici.icloud.com 443
+echo "Fonts for certain languages…"
+nc -vz www.apple.com 443
 echo "SFTP uploads…"
 nc -vz upload.appleschoolcontent.com 22
+echo "User lookup service…"
+nc -vz ws-ee-maidsvc.icloud.com 80
+nc -vz ws-ee-maidsvc.icloud.com 443
 echo "Done testing for Apple Manager!"
 
 ## Apple Business Essentials device management
 
 echo "Testing for Apple Business Essentials…"
-echo "DEP enrollment server…"
+echo "ABE DEP server…"
 nc -vz axm-adm-enroll.apple.com 443
-echo "MDM server…"
+echo "ABE MDM server…"
 nc -vz axm-adm-mdm.apple.com 443
-echo "SCEP server…"
+echo "ABE SCEP server…"
 nc -vz axm-adm-scep.apple.com 443
-echo "View and Manage Apps and Devices…"
+echo "Manage Apps and Devices…"
 nc -vz axm-app.apple.com 443
+echo "Managed Lost Mode…"
+nc -vz api.apple-mapkit.com 443
+echo "Custom Package icons…"
+nc -vz icons.axm-usercontent-apple.com 443
 echo "Done testing for Apple Business Essentials!"
 
+## Classroom and Schoolwork
+
+echo "Testing for Classroom and Schoolwork…"
+echo "Classroom and Schoolwork device verification…"
+nc -vz s.mzstatic.com 443
+nc -vz play.itunes.apple.com 443
+echo "Classroom and Schoolwork class roster service…"
+nc -vz ws-ee-maidsvc.icloud.com 443
+nc -vz ws.school.apple.com 443
+echo "Schoolwork handout service…"
+nc -vz pg-bootstrap.itunes.apple.com 443
+nc -vz cls-iosclient.itunes.apple.com 443
+nc -vz cls-ingest.itunes.apple.com 443
+echo "Done testing for Classroom and Schoolwork!"
+
 ## Software Updates
-### macOS, iOS, and tvOS
+### macOS, iOS, tvOS, and watchOS
 
 echo "Testing for Software updates…"
-echo "iOS updates…"
+echo "iOS and watchOS updates…"
 nc -vz appldnld.apple.com 80
-echo "Rosetta 2 updates…"
+echo "Rosetta updates…"
 nc -vz configuration.apple.com 443
 echo "Software update catalogs…"
 nc -vz gdmf.apple.com 443
 nc -vz mesu.apple.com 80
 nc -vz mesu.apple.com 443
-echo "iOS, tvOS, and macOS updates…"
+echo "iOS, tvOS, watchOS, and macOS updates…"
 nc -vz gg.apple.com 80
 nc -vz gg.apple.com 443
 nc -vz gs.apple.com 80
@@ -120,7 +149,7 @@ nc -vz swdist.apple.com 443
 nc -vz swdownload.apple.com 80
 nc -vz swdownload.apple.com 443
 nc -vz swscan.apple.com 443
-echo "Now Serving Service…"
+echo "Apple Now Serving Service…"
 nc -vz ns.itunes.apple.com 443
 echo "macOS Recovery…"
 nc -vz oscdn.apple.com 80
@@ -130,14 +159,14 @@ nc -vz osrecovery.apple.com 443
 echo "Software update downloads…"
 nc -vz updates-http.cdn-apple.com 80
 nc -vz updates.cdn-apple.com 443
+echo "XProtect and XProtectRemediator updates and App Store telemetry…"
+nc -vz xp.apple.com 443
 echo "Done testing for Software updates!"
 
 ## Software Updates
 ### App Store
 
 echo "Testing for App Store…"
-echo "App Store Catalog Updates…"
-nc -vz xp.apple.com 443
 echo "Store content such as apps, books, and music…"
 nc -vz buy.itunes.apple.com 80
 nc -vz buy.itunes.apple.com 443
@@ -170,9 +199,9 @@ echo "Testing for Carrier updates…"
 echo "Cellular carrier bundle updates…"
 nc -vz appldnld.apple.com 80
 nc -vz appldnld.apple.com.edgesuite.net 80
+echo "Carrier bundle update discovery…"
 nc -vz itunes.com 80
 nc -vz itunes.com 443
-echo "Carrier bundle update discovery…"
 nc -vz updates-http.cdn-apple.com 80
 nc -vz updates.cdn-apple.com 443
 echo "Done testing for Carrier updates!"
@@ -193,33 +222,25 @@ nc -vz serverstatus.apple.com 443
 echo "Done testing for Content caching!"
 
 ## Apple Developer
-### App notarization
+### App features
 
-# echo "Testing for App notarization…"
-# echo "Ticket delivery…"
-# 17.248.128.0/18 443
-# 17.250.64.0/18 443
-# 17.248.192.0/19 443
-# echo "Done testing for App notarization!"
-
-## Apple Developer
-### App validation
-
-echo "Testing for App validation…"
+echo "Testing for App features…"
+echo "App notarization…"
+nc -vz api.apple-cloudkit.com 443
 echo "App validation, Touch ID and Face ID authentication for websites…"
 nc -vz data-development.appattest.apple.com 443
-echo "Done testing for App validation!"
+echo "Done testing for App features!"
 
-### Feedback Assistant
+### Beta updates and Feedback Assistant
 
-echo "Testing for Feedback Assistant…"
-echo "Beta software updates…"
+echo "Testing for Beta updates and Feedback Assistant…"
+echo "Beta update enrollment…"
 nc -vz bpapi.apple.com 443
-echo "Feedback Assistant feedback content…"
-nc -vz fba.apple.com 443
 echo "Feedback Assistant file upload…"
 nc -vz cssubmissions.apple.com 443
-echo "Done testing for Feedback Assistant!"
+echo "Feedback Assistant file upload content…"
+nc -vz fba.apple.com 443
+echo "Done testing for Beta updates!"
 
 ### Apple diagnostics
 
@@ -257,9 +278,9 @@ echo "Done testing for Certificate validation!"
 ### Apple ID
 
 echo "Testing for Apple ID…"
-echo "Apple ID authentication in Settings and System Preferences…"
+echo "Apple ID authentication in Settings and System Settings…"
 nc -vz appleid.apple.com 443
-echo "Apple ID authentication in Settings and System Preferences…"
+echo "Apple ID authentication in Settings and System Settings…"
 nc -vz appleid.cdn-apple.com 443
 echo "Apple ID authentication…"
 nc -vz idmsa.apple.com 443
@@ -289,6 +310,33 @@ nc -vz mask-h2.icloud.com 443
 nc -vz mask-api.icloud.com 443
 echo "Done testing for iCloud!"
 
+### Siri and Search
+
+echo "Testing for Siri and Search…"
+echo "Siri and dictation requests…"
+nc -vz guzzoni.apple.com 443
+echo "Search services including Spotlight…"
+nc -vz api.smoot.apple.com 443
+echo "Done testing for Siri and Search!"
+
+### Apple Pay
+
+echo "Testing for Apple Pay…"
+echo "Associated domains for Tap to Pay on iPhone…"
+nc -vz pos-device.apple.com 443
+nc -vz humb.apple.com 443
+echo "Associated domains for Tap to Pay analytics sharing…"
+nc -vz phonesubmissions.apple.com 443
+echo "Done testing for Apple Pay!"
+
+### Associated Domains
+
+echo "Testing for Associated Domains…"
+echo "Associated domains for universal links…"
+nc -vz app-site-association.cdn-apple.com 443
+nc -vz app-site-association.networking.apple 443
+echo "Done testing for Associated Domains!"
+
 ### Additional Content
 
 echo "Testing for Additional Content…"
@@ -305,7 +353,7 @@ nc -vz playgrounds-assets-cdn.apple.com 443
 nc -vz playgrounds-assets-cdn.apple.com 443
 nc -vz playgrounds-cdn.apple.com 443
 nc -vz playgrounds-cdn.apple.com 443
-echo "Apple TV screen savers…"
+echo "Aerial screen savers and wallpapers for Apple TV and macOS Sonoma…"
 nc -vz sylvan.apple.com 80
 nc -vz sylvan.apple.com 443
 echo "Done testing for Additional Content!"
