@@ -310,24 +310,39 @@ nc -vz mask-h2.icloud.com 443
 nc -vz mask-api.icloud.com 443
 echo "Done testing for iCloud!"
 
-### Siri and Search
+### Apple Intelligence, Siri, and Search
 
-echo "Testing for Siri and Search…"
+echo "Testing for Apple Intelligence, Siri, and Search…"
 echo "Siri and dictation requests…"
 nc -vz guzzoni.apple.com 443
 echo "Search services including Spotlight…"
 nc -vz api.smoot.apple.com 443
-echo "Done testing for Siri and Search!"
+echo "Private Cloud Compute…"
+nc -vz apple-relay.cloudflare.com 443
+nc -vz apple-relay.fastly-edge.com 443
+nc -vz cp4.cloudflare.com 443
+echo "Done testing for Apple Intelligence, Siri, and Search!"
 
 ### Apple Pay
 
 echo "Testing for Apple Pay…"
-echo "Associated domains for Tap to Pay on iPhone…"
+echo "Tap to Pay on iPhone…"
 nc -vz pos-device.apple.com 443
+echo "Tap to Pay on iPhone setup…"
 nc -vz humb.apple.com 443
-echo "Associated domains for Tap to Pay analytics sharing…"
+echo "Tap to Pay analytics sharing…"
 nc -vz phonesubmissions.apple.com 443
 echo "Done testing for Apple Pay!"
+
+### ID Verifier on iPhone
+
+echo "Testing for ID Verifier on iPhone…"
+echo "ID Verifier on iPhone…"
+nc -vz smp-device-content.apple.com 443
+nc -vz idv.cdn-apple.com 443
+nc -vz idv-prod1.apple.com 443
+nc -vz humb.apple.com 443
+echo "Done testing for ID Verifier on iPhone!"
 
 ### Associated Domains
 
@@ -353,9 +368,11 @@ nc -vz playgrounds-assets-cdn.apple.com 443
 nc -vz playgrounds-assets-cdn.apple.com 443
 nc -vz playgrounds-cdn.apple.com 443
 nc -vz playgrounds-cdn.apple.com 443
-echo "Aerial screen savers and wallpapers for Apple TV and macOS Sonoma…"
+echo "Aerial screen savers and wallpapers…"
 nc -vz sylvan.apple.com 80
 nc -vz sylvan.apple.com 443
+echo "Voice Control assets"
+nc -vz gateway.icloud.com 443
 echo "Done testing for Additional Content!"
 
 echo "All tests completed!"
