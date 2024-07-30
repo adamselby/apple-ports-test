@@ -21,7 +21,8 @@ Script that tests for Apple services connectivity including APNS, based on info 
 * Certificate validation
 * Apple ID
 * iCloud
-* Siri and Search
+* Apple Intelligence, Siri, and Search
 * Apple Pay
+* ID Verifier on iPhone
 * Associated Domains
 * Additional Content
