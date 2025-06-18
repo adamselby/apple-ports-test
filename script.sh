@@ -48,7 +48,7 @@ nc -vz gateway.sandbox.push.apple.com 2196
 nc -vz feedback.push.apple.com 2196
 echo "DEP provisional enrollment…"
 nc -vz deviceenrollment.apple.com 443
-echo "Device Services…"
+echo "MDM Activation Lock disablement service…"
 nc -vz deviceservices-external.apple.com 443
 echo "Managed Software Updates Lookup Service…"
 nc -vz gdmf.apple.com 443
@@ -58,7 +58,7 @@ echo "Enrollment profiles for Automated Device Enrollment…"
 nc -vz iprofiles.apple.com 443
 echo "Device and account lookup for Automated Device Enrollment…"
 nc -vz mdmenrollment.apple.com 443
-echo "Managed Apple ID on Shared iPad…"
+echo "Managed Apple Account on Shared iPad…"
 nc -vz setup.icloud.com 443
 echo "MDM operations related to Apps and Books…"
 nc -vz vpp.itunes.apple.com 443
@@ -140,8 +140,6 @@ nc -vz gg.apple.com 443
 nc -vz gs.apple.com 80
 nc -vz gs.apple.com 443
 echo "macOS updates…"
-nc -vz gnf-mdn.apple.com 443
-nc -vz gnf-mr.apple.com 443
 nc -vz ig.apple.com 443
 nc -vz skl.apple.com 443
 nc -vz swcdn.apple.com 80
@@ -149,8 +147,6 @@ nc -vz swdist.apple.com 443
 nc -vz swdownload.apple.com 80
 nc -vz swdownload.apple.com 443
 nc -vz swscan.apple.com 443
-echo "Apple Now Serving Service…"
-nc -vz ns.itunes.apple.com 443
 echo "macOS Recovery…"
 nc -vz oscdn.apple.com 80
 nc -vz oscdn.apple.com 443
@@ -159,6 +155,12 @@ nc -vz osrecovery.apple.com 443
 echo "Software update downloads…"
 nc -vz updates-http.cdn-apple.com 80
 nc -vz updates.cdn-apple.com 443
+echo "Software update additional component downloads…"
+nc -vz gdmf-ados.apple.com 443
+nc -vz gsra.apple.com 443
+echo "Attached device OS installation…"
+nc -vz wkms-public.apple.com 443
+nc -vz fcs-keys-pub-prod.cdn-apple.com 443
 echo "XProtect and XProtectRemediator updates and App Store telemetry…"
 nc -vz xp.apple.com 443
 echo "Done testing for Software updates!"
@@ -263,22 +265,21 @@ echo "Certificate validation…"
 nc -vz certs.apple.com 80
 nc -vz certs.apple.com 443
 nc -vz crl.apple.com 80
-nc -vz crl.entrust.net 80
 nc -vz crl3.digicert.com 80
 nc -vz crl4.digicert.com 80
 nc -vz ocsp.apple.com 80
 nc -vz ocsp.digicert.com 80
-nc -vz ocsp.entrust.net 80
 nc -vz ocsp2.apple.com 80
 nc -vz valid.apple.com 80
 # echo "Certificate validation in China…"
 # nc -vz ocsp.digicert.cn 80
 echo "Done testing for Certificate validation!"
 
-### Apple ID
+### Apple Account
 
-echo "Testing for Apple ID…"
+echo "Testing for Apple Account…"
 echo "Apple ID authentication in Settings and System Settings…"
+nc -vz account.apple.com 443
 nc -vz appleid.apple.com 443
 echo "Apple ID authentication in Settings and System Settings…"
 nc -vz appleid.cdn-apple.com 443
@@ -321,6 +322,8 @@ echo "Private Cloud Compute…"
 nc -vz apple-relay.cloudflare.com 443
 nc -vz apple-relay.fastly-edge.com 443
 nc -vz cp4.cloudflare.com 443
+echo "Apple Intelligence Extensions…"
+nc -vz apple-relay.apple.com 443
 echo "Done testing for Apple Intelligence, Siri, and Search!"
 
 ### Apple Pay
@@ -330,8 +333,8 @@ echo "Tap to Pay on iPhone…"
 nc -vz pos-device.apple.com 443
 echo "Tap to Pay on iPhone setup…"
 nc -vz humb.apple.com 443
-echo "Tap to Pay analytics sharing…"
-nc -vz phonesubmissions.apple.com 443
+echo "Optional Tap to Pay analytics sharing…"
+nc -vz iphonesubmissions.apple.com 443
 echo "Done testing for Apple Pay!"
 
 ### ID Verifier on iPhone
