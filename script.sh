@@ -88,6 +88,9 @@ nc -vz upload.appleschoolcontent.com 22
 echo "User lookup service…"
 nc -vz ws-ee-maidsvc.icloud.com 80
 nc -vz ws-ee-maidsvc.icloud.com 443
+echo "API services…"
+nc -vz api-business.apple.com 443
+nc -vz api-school.apple.com 443
 echo "Done testing for Apple Manager!"
 
 ## Apple Business Essentials device management
@@ -374,7 +377,7 @@ nc -vz playgrounds-cdn.apple.com 443
 echo "Aerial screen savers and wallpapers…"
 nc -vz sylvan.apple.com 80
 nc -vz sylvan.apple.com 443
-echo "Voice Control assets"
+echo "CloudKit content…"
 nc -vz gateway.icloud.com 443
 echo "Done testing for Additional Content!"
 
